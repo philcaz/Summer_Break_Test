@@ -4,6 +4,7 @@ from io import StringIO
 
 app = Flask(__name__)
 
+
 data = []
 
 @app.route('/')
@@ -41,11 +42,9 @@ def post_transactions():
         rows = []
         for row in reader:
             print(row)
-            if row:
-                print("checkpoint")
-                rows.append(dict(zip(header, row)))
-        print("rows added")
-        print(rows)
+            if row and not row[0].startswith("#"):
+                cleaned_row = [value.strip() for value in row]
+                rows.append(dict(zip(header, cleaned_row)))
         for row in rows:
             # validate and parse each row
             date = row['Date']
