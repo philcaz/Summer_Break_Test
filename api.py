@@ -4,12 +4,12 @@ from io import StringIO
 
 app = Flask(__name__)
 
-
+HEADERS = ['Date', 'Type', 'Amount($)', 'Memo']
 data = []
 
 @app.route('/')
 def home():
-    return "Homepage placeholder. Use '/transactions' to POST data and '/report' to GET report."
+    return "<h1>Homepage placeholder</h1> <p>Use '/transactions' to POST data and '/report' to GET report.</p>"
 
 @app.route('/report', methods=['GET'])
 def get_report():
@@ -37,14 +37,13 @@ def post_transactions():
         file = request.files['data']
         content = file.stream.read().decode('utf-8')
         reader = csv.reader(StringIO(content))
-
-        header = ['Date', 'Type', 'Amount($)', 'Memo']
         rows = []
         for row in reader:
-            print(row)
             if row and not row[0].startswith("#"):
                 cleaned_row = [value.strip() for value in row]
-                rows.append(dict(zip(header, cleaned_row)))
+                rows.append(dict(zip(HEADERS, cleaned_row)))
+        
+        #print(rows)
         for row in rows:
             # validate and parse each row
             date = row['Date']
@@ -63,7 +62,7 @@ def post_transactions():
                 'memo': memo
             })
 
-        print("current data in memory after upload:", data)  # Debugging
+        #print("current data in memory after upload:", data)
         return jsonify({"message": "Transactions uploaded successfully."}), 201
     except Exception as e:
         return jsonify({"error": str(e)}), 400
