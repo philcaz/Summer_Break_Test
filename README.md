@@ -22,7 +22,7 @@ This is a simple Flask-based web service that helps process summer mowing revenu
 
 4. Open a new terminal (T2), test API Endpoints
     - if not under /Summer_Break_Test, ```cd Summer_Break_Test```
-    - ```./test.sh```
+    - ```./tests/test.sh```
 
 5. Stop the application in T1
     - ```Ctrl + C```
