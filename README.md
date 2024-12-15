@@ -8,7 +8,8 @@ This is a simple Flask-based web service that helps process summer mowing revenu
 1. Python 3.8 or above.
 2. pip for package management.
 ## Installation Steps
-1. Open a Bash terminal (T1), clone this repository
+0. MacOS and Linux: Use Default Terminal. Windows: Use Git Bash
+1. Open a terminal (T1), clone this repository
 
     - ```git clone https://github.com/philcaz/Summer_Break_Test.git```
   
