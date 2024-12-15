@@ -8,12 +8,15 @@ This is a simple Flask-based web service that helps process summer mowing revenu
 1. Python 3.8 or above.
 2. pip for package management.
 ## Installation Steps
-0. MacOS and Linux: Use Default Terminal. Windows: Use Git Bash
+MacOS and Linux: Use Default Terminal. Windows: Use Git Bash.
 1. Open a terminal (T1), clone this repository
 
+    a) If access from Git VCS 
     - ```git clone https://github.com/philcaz/Summer_Break_Test.git```
   
-    - ```cd Summer_Break_Test```
+    - ```cd Summer_Break_Test``` 
+
+    b) If unzip tarball directly, proceed to step 2.
   
 2. Install dependencies
     - ```pip install -r requirements.txt```
@@ -22,8 +25,8 @@ This is a simple Flask-based web service that helps process summer mowing revenu
     - ```python api.py```
 
 4. Open a new terminal (T2), test API Endpoints
-    - if not under /Summer_Break_Test, ```cd Summer_Break_Test```
-    - ```./tests/test.sh```
+    - make sure current directory is the same as in T1 
+    - run ```./tests/test.sh```
 
 5. Stop the application in T1
     - ```Ctrl + C```
