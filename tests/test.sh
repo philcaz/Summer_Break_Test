@@ -5,7 +5,7 @@ echo "Test starting for API endpoints"
 
 # test POST /transactions
 echo "Testing POST /transactions with data.csv..."
-curl -X POST http://127.0.0.1:5000/transactions -F "data=@data.csv"
+curl -X POST http://127.0.0.1:5000/transactions -F "data=@./tests/data.csv"
 echo -e "\n"
 
 # test GET /report
