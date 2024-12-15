@@ -16,8 +16,8 @@ def get_report():
     # calculate and return the financial report
     global data
     try:    
-        income = sum(item['amount'] for item in data if item['type'] == 'Income')
-        expense = sum(item['amount'] for item in data if item['type'] == 'Expense')
+        income = sum(item['amount'] for item in data if item['type'].lower() == 'income')
+        expense = sum(item['amount'] for item in data if item['type'].lower() == 'expense')
         net_revenue = income - expense
 
         report = {
@@ -52,7 +52,7 @@ def post_transactions():
             memo = row['Memo'].strip('')
             
             # validate type values
-            if type_ not in ['Income', 'Expense']:
+            if type_.lower() not in ['income', 'expense']:
                 return jsonify({"error": "Invalid type in data."}), 400
 
             data.append({
